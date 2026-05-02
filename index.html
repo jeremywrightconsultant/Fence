@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fence Distribution </title>
+<title>Company Name - Proof of Concept</title>
 
 <link rel="icon" type="image/png" href="2K_PDF_Markup_Master_V01_01_18_512x512.png">
 
@@ -23,7 +23,7 @@ margin-bottom: 10px;
 }
 
 .container {
-max-width: 1000px;
+max-width: 1100px;
 margin: 0 auto;
 padding: 20px;
 }
@@ -45,9 +45,21 @@ section {
 margin-bottom: 60px;
 }
 
+/* Shop Layout: Products on left, Cart on right */
+.shop-layout {
+display: flex;
+gap: 30px;
+flex-wrap: wrap; /* Allows stacking on smaller screens */
+}
+
+.catalog-section {
+flex: 2; /* Takes up 2/3 of the space */
+min-width: 300px;
+}
+
 .catalog-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 gap: 20px;
 }
 
@@ -56,6 +68,9 @@ border: 1px solid #EAEAEA;
 padding: 20px;
 text-align: center;
 transition: box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 }
 
 .product-card:hover {
@@ -68,9 +83,35 @@ height: 200px;
 object-fit: cover;
 margin-bottom: 15px;
 display: block;
-
 }
 
+/* Cart Styling */
+.cart-container {
+flex: 1; /* Takes up 1/3 of the space */
+min-width: 250px;
+background: #F9F9F9;
+border: 1px solid #EAEAEA;
+padding: 20px;
+height: fit-content;
+}
+
+.cart-item {
+display: flex;
+justify-content: space-between;
+border-bottom: 1px solid #EAEAEA;
+padding: 10px 0;
+font-size: 0.9em;
+}
+
+.cart-total {
+font-size: 1.2em;
+font-weight: bold;
+text-align: right;
+margin-top: 20px;
+color: #1B365D;
+}
+
+/* Global Button Styling */
 button {
 background-color: #1B365D;
 color: #FFFFFF;
@@ -81,103 +122,88 @@ cursor: pointer;
 font-weight: bold;
 letter-spacing: 0.5px;
 transition: background-color 0.2s ease;
-}
-
-button:hover {
-background-color: #122540;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
 width: 100%;
-padding: 12px;
-margin-bottom: 15px;
-border: 1px solid #CCCCCC;
-border-radius: 0;
-box-sizing: border-box;
-font-family: inherit;
-color: #36454F;
-}
+margin-top: 15px;
+<div class="shop-layout">
 
-textarea {
-resize: vertical;
-min-height: 120px;
-}
-
-.blog-post {
-border-bottom: 1px solid #EAEAEA;
-padding-bottom: 20px;
-margin-bottom: 20px;
-}
-
-.blog-date {
-font-size: 0.9em;
-color: #777;
-}
-</style>
-</head>
-<body>
-
-<header>
-<img src="2K_PDF_Markup_Master_V01_01_18_2.png" alt="Fence Distribution Logo" class="company-logo">
-<h1> Bulk Fence & Barrier Supplies</h1>
-<p>Providing industry-leading solutions.</p>
-</header>
-
-<div class="container">
-
-<section id="catalog">
+<div class="catalog-section">
 <h2>Product Catalog</h2>
 <div class="catalog-grid">
 <div class="product-card">
 <img src="Alpha_1.png" alt="Product Alpha" class="product-image">
+<div>
 <h3>Product Alpha</h3>
 <p>Minimal description detailing the core specifications.</p>
+<p><strong>$150.00</strong></p>
 </div>
+<button onclick="addToCart('Product Alpha', 150.00)">Add to Cart</button>
+</div>
+
 <div class="product-card">
 <img src="beta_1.jpg" alt="Product Beta" class="product-image">
+<div>
 <h3>Product Beta</h3>
 <p>Minimal description detailing the core specifications.</p>
+<p><strong>$225.00</strong></p>
 </div>
+<button onclick="addToCart('Product Beta', 225.00)">Add to Cart</button>
+</div>
+
 <div class="product-card">
 <img src="gama_1.jpg" alt="Product Gamma" class="product-image">
+<div>
 <h3>Product Gamma</h3>
 <p>Minimal description detailing the core specifications.</p>
+<p><strong>$300.00</strong></p>
+</div>
+<button onclick="addToCart('Product Gamma', 300.00)">Add to Cart</button>
 </div>
 </div>
-</section>
-
-<hr style="border: 0; border-top: 1px solid #EAEAEA; margin: 40px 0;">
-
-<section id="blog">
-<h2>Latest Industry Insights</h2>
-<div class="blog-post">
-<h3>Optimizing Operational Workflows</h3>
-<span class="blog-date">May 1, 2026</span>
-<p>A brief overview of how new methodologies are streamlining the way modern businesses handle front-line operations and connectivity.</p>
 </div>
-<div class="blog-post">
-<h3>The Value of Strong Partnerships</h3>
-<span class="blog-date">April 24, 2026</span>
-<p>Examining the impact of dedicated service agreements on long-term project stability and growth.</p>
+
+<div class="cart-container">
+<h2>Your Cart 🛒</h2>
+
+<div id="cart-items-list">
+<p>Your cart is empty.</p>
 </div>
-</section>
 
-<hr style="border: 0; border-top: 1px solid #EAEAEA; margin: 40px 0;">
-
-<section id="request">
-<h2>Request Information</h2>
-<p>Fill out the form below to initiate a consultation or request a detailed quote.</p>
-<form action="#" method="POST" onsubmit="event.preventDefault(); alert('This is a POC form. In production, this will capture client data.');">
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email Address" required>
-<textarea placeholder="How can we assist your business today?" required></textarea>
-<button type="submit">Submit Request</button>
-</form>
-</section>
-
+<div class="cart-total">
+Total: $<span id="cart-total-price">0.00</span>
 </div>
+
+<button onclick="alert('This is a POC. In production, this will route to a payment gateway.')">Checkout</button>
+</div>
+
+</div> <hr style="border: 0; border-top: 1px solid #EAEAEA; margin: 40px 0;">
+<script>
+let cart = [];
+let cartTotal = 0;
+
+function addToCart(itemName, itemPrice) {
+cart.push({ name: itemName, price: itemPrice });
+cartTotal += itemPrice;
+updateCartDisplay();
+}
+
+function updateCartDisplay() {
+const cartListElement = document.getElementById('cart-items-list');
+const totalElement = document.getElementById('cart-total-price');
+
+cartListElement.innerHTML = '';
+
+cart.forEach(function(item) {
+cartListElement.innerHTML += `
+<div class="cart-item">
+<span>${item.name}</span>
+<span>$${item.price.toFixed(2)}</span>
+</div>
+`;
+});
+
+totalElement.innerText = cartTotal.toFixed(2);
+}
+</script>
 
 </body>
 </html>
