@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Company Name - Proof of Concept</title>
+<title>Fence Distribution </title>
 
 <link rel="icon" type="image/png" href="2K_PDF_Markup_Master_V01_01_18_512x512.png">
 
 <style>
-/* Typography and Colors */
 body {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background-color: #FFFFFF;
-color: #36454F; /* Charcoal */
+color: #36454F;
 margin: 0;
 padding: 0;
 line-height: 1.6;
 }
 
 h1, h2, h3 {
-color: #1B365D; /* Strong, confident Navy Blue */
+color: #1B365D;
 margin-bottom: 10px;
 }
 
@@ -29,23 +28,100 @@ margin: 0 auto;
 padding: 20px;
 }
 
-/* Header & Logo */
 header {
 text-align: center;
 padding: 60px 20px;
-border-bottom: 4px solid #1B365D; /* Navy foundation line */
+border-bottom: 4px solid #1B365D;
 margin-bottom: 40px;
 }
 
-/* === NEW LOGO STYLING === */
 .company-logo {
-max-width: 300px; /* Adjust this to make the logo larger or smaller */
+max-width: 300px;
 height: auto;
 margin-bottom: 20px;
-/* Because it's a tight crop transparent PNG, it will sit perfectly */
+}
+
+section {
+margin-bottom: 60px;
+}
+
+.catalog-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+}
+
+.product-card {
+border: 1px solid #EAEAEA;
+padding: 20px;
+text-align: center;
+transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+box-shadow: 0 4px 12px rgba(27, 54, 93, 0.1);
+}
+
+.product-image {
+width: 100%;
+height: 200px;
+object-fit: cover;
+margin-bottom: 15px;
+display: block;
+
+}
+
+button {
+background-color: #1B365D;
+color: #FFFFFF;
+border: none;
+padding: 12px 24px;
+font-size: 16px;
+cursor: pointer;
+font-weight: bold;
+letter-spacing: 0.5px;
+transition: background-color 0.2s ease;
+}
+
+button:hover {
+background-color: #122540;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+width: 100%;
+padding: 12px;
+margin-bottom: 15px;
+border: 1px solid #CCCCCC;
+border-radius: 0;
+box-sizing: border-box;
+font-family: inherit;
+color: #36454F;
+}
+
+textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+.blog-post {
+border-bottom: 1px solid #EAEAEA;
+padding-bottom: 20px;
+margin-bottom: 20px;
+}
+
+.blog-date {
+font-size: 0.9em;
+color: #777;
+}
+</style>
+</head>
+<body>
+
+<header>
 <img src="2K_PDF_Markup_Master_V01_01_18_2.png" alt="Fence Distribution Logo" class="company-logo">
 <h1>Fence Distribution</h1>
-
 <p>Providing industry-leading solutions.</p>
 </header>
 
